@@ -1,0 +1,13 @@
+{
+  "name": "ConjugVerbos",
+  "description": "Conjugue Verbos da Lingua Portuguesa",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/images/icon-128.png"
+  },
+  "developer": {
+    "name": "Gilmar Soares",
+    "url": "http://itinerariosp.com.br"
+  },
+  "default_locale": "en"
+}
