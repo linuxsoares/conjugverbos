@@ -14,5 +14,9 @@ function getConjugacoes(verbo){
 
 function getValorBusca(){
 	var verbo = $('#nome_busca').val();
-	document.location.href = 'conjugado.html?palavra='+verbo;
+	if(verbo != ""){
+		document.location.href = 'conjugado.html?palavra='+verbo;
+	}else {
+		alert("Digite Verbo para Buscar!");
+	}
 }
