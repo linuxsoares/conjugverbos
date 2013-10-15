@@ -10,57 +10,63 @@
   
   
   <link rel="stylesheet" href="css/jquery.mobile-1.2.1.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/commons.css">
   
   <!-- jQuery and jQuery Mobile -->
   <script src="js/jquery.js"></script>
   <script src="js/commons.js"></script>
   <script src="js/jquery.mobile-1.2.1.min.js"></script>
+  <script src="js/jquery.jsonp-2.1.4.min.js"></script>
   <script type="text/javascript">
     $( document ).ready(function() {
       var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
       hash = hashes[0].split('=');
-      var base_url = 'http://localhost:8080/verbosws/rest/verbos/letra/';
+      var base_url = 'http://localhost:8080/verbosws/rest/verbos/mobile/letra/';
       url_full = base_url + hash[1];
-      listVerbos(url_full);
+      listVerbos(url_full, hash[1]);
     });
 
-    function listVerbos(url){
-      $.ajax({
-        type: "GET",
-        url: url,
-        dataType: "jsonp",
-        contentType: 'application/javascript',
-        statusCode: {
-          404: function() {
-           alert( "page not found" );
-          }
-        },
-        done: callback,
-        error: callback
-      });
-    }
+    function listVerbos(url, letra){
+         
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: 'json',
+            success: function(data){
+              if(data != ''){
+                $.each(data, function(i, item) {
+                  $('#resultLog').append('<div><button type="button" class="btn btn-info btn-lg btn-block" onclick="getConjugacoes('+'\''+item.nome+'\''+');">'+ item.nome +'</button><p /><div>');
+                });
+              }else{
+                alert('Letra "'+letra.toUpperCase()+'" sem verbos.');
+              }
+            },
+            error: function(dat){
+              console.log(data);
+            }
+        });
 
-    function callback(data){
-      alert(data);
-    }
-
+      }
   </script>
 
   <!-- Extra Codiqa features -->
   <script src="https://d10ajoocuyu32n.cloudfront.net/codiqa.ext.js"></script>
    
 </head>
-<body>
+<body bgcolor="#000000">
 <!-- Home -->
-<div data-role="page" id="page1">
+<div data-role="page" id="page1" align="center" >
     <div data-theme="a" data-role="header">
+      <button value="HOME" onclick="home();"></button>
         <h3 id="header_conjugverbos">
             ConjugVerbos
         </h3>
     </div>
-    <a href="#" data-transition="slide" onclick="home();">
-        Voltar
-    </a>
+    <div>
+    <br />
+    </div>
+    <div id="resultLog" align="center" ></div>
 </div>
 </body>
 </html>

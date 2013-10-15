@@ -9,5 +9,10 @@ function home(){
 }
 
 function getConjugacoes(verbo){
+	document.location.href = 'conjugado.html?palavra='+verbo;
+}
 
+function getValorBusca(){
+	var verbo = $('#nome_busca').val();
+	document.location.href = 'conjugado.html?palavra='+verbo;
 }

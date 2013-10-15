@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title></title>
+  
+  <link rel="stylesheet" href="css/jquery.mobile-1.2.1.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  
+  <!-- jQuery and jQuery Mobile -->
+  <script src="js/jquery.js"></script>
+  <script src="js/commons.js"></script>
+  <script src="js/jquery.mobile-1.2.1.min.js"></script>
+
+    <script type="text/javascript">
+      $( document ).ready(function() {
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        hash = hashes[0].split('=');
+        var base_url = 'http://localhost:8080/verbosws/rest/verbos/mobile/palavra/';
+        url_full = base_url + hash[1];
+        listVerbos(url_full, hash[1]);
+      });
+
+      function listVerbos(url, palavra){
+         
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: 'json',
+            success: function(data){
+              var tempo = ["EU", "TU", "ELE", "NÓS", "VÓS", "ELES"];
+              var count = 0;
+              $('#verbo').append('<label><font size="5" > VERBO '+ palavra.toUpperCase() +'</font></label>');
+              if(data != ''){
+                $.each(data, function(i, item) {
+                  if(count == 0){
+                    $('#resultLog').append('<tr><th colspan="2" bgcolor="#9FB6CD"><label><font size="5" >'+ item.nomeTempoVerbal +'</font></label></td></tr>');
+                  }
+                  if(item.nomeTipoVerbal == "IMPERATIVO" && count == 0){
+                    count += 1;
+                  }
+                  $('#resultLog').append('<tr><td bgcolor="#C6E2FF"><label><font size="4" >'+ tempo[count] +'&nbsp</font></label></td><td align="center" ><label><font size="4" >'+ item.conjugacao.toUpperCase() +'&nbsp</font></label></td></tr>');
+                  count += 1;
+                  if (count == 6){
+                    count = 0;
+                  }
+                });  
+              }else{
+                alert('Letra "'+letra.toUpperCase()+'" sem verbos.');
+              }
+            },
+            error: function(dat){
+              console.log(data);
+            }
+        });
+
+      }
+    </script>
+</head>
+<body background-color="black">
+<!-- Home -->
+<div data-role="page" id="page1">
+    <div data-theme="a" data-role="header">
+        <button value="HOME" onclick="home();"></button>
+        <h3 id="header_conjug">
+            ConjugVerbos
+        </h3>
+    </div>
+    <br />
+    <div id="verbo" align="center"></div>
+    <br />
+    <table id="resultLog" align="center" border="5" CELLPADDING="2"></table>
+</body>

@@ -8,6 +8,7 @@
   <title></title>
   
   <link rel="stylesheet" href="css/jquery.mobile-1.2.1.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   
   <!-- jQuery and jQuery Mobile -->
   <script src="js/jquery.js"></script>
@@ -21,7 +22,7 @@
     </script>
    
 </head>
-<body>
+<body background-color="black">
 <!-- Home -->
 <div data-role="page" id="page1">
     <div data-theme="a" data-role="header">
@@ -29,10 +30,15 @@
             ConjugVerbos
         </h3>
     </div>
-    <div data-role="content" id="letra">
-        <div data-role="fieldcontain">
-            <input name="busca" id="busca" placeholder="digite verbo" value="" type="search">
+    <div>
+        <div id="div_busca" >
+            <input name="nome_busca" id="nome_busca" placeholder="" value="" type="search" >
         </div>
+        <div id="button_busca" >
+            <button id="botao_busca" onclick="getValorBusca();" value="Busca"></button>
+        </div>
+    </div>
+    <div data-role="content" id="letra">
         <div style="float: left;" onclick="getvalor('a');">
             <img src="images/a.png" style="width: 95px; height: 95px;"  >
         </div>
