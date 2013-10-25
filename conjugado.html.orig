@@ -40,12 +40,20 @@
               if(data != ''){
                 $.each(data, function(i, item) {
                   if(count == 0){
+<<<<<<< HEAD
                     $('#resultLog').append('<tr class="ui-grid-b"><th colspan="2"><label><font size="5" >'+ item.nomeTempoVerbal +'</font></label></th></tr>');
+=======
+                    $('#resultLog').append('<tr><th colspan="2"><label><font size="5" >'+ item.nomeTempoVerbal +'</font></label></td></tr>');
+>>>>>>> master
                   }
                   if(item.nomeTipoVerbal == "IMPERATIVO" && count == 0){
                     count += 1;
                   }
+<<<<<<< HEAD
                   $('#resultLog').append('<tr class="ui-grid-b"><td><label align="center"><font size="4" >'+ tempo[count] +'&nbsp</font></label></td><td><label><font size="4" >'+ item.conjugacao.toUpperCase() +'&nbsp</font></label></td></tr>');
+=======
+                  $('#resultLog').append('<tr><td><label><font size="4" >'+ tempo[count] +'&nbsp</font></label></td><td align="center" ><label><font size="4" >'+ item.conjugacao.toUpperCase() +'&nbsp</font></label></td></tr>');
+>>>>>>> master
                   count += 1;
                   if (count == 6){
                     count = 0;
@@ -75,5 +83,9 @@
     <br />
     <div id="verbo" align="center"></div>
     <br />
+<<<<<<< HEAD
     <table id="resultLog" align="center" CELLPADDING="2" class="ui-grid-b"></table>
+=======
+    <table id="resultLog" align="center" border="5" CELLPADDING="2" class="table table-striped"></table>
+>>>>>>> master
 </body>

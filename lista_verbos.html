@@ -7,22 +7,19 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <title></title>
   
-  
-  
   <link rel="stylesheet" href="css/jquery.mobile-1.2.1.min.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/commons.css">
   
   <!-- jQuery and jQuery Mobile -->
   <script src="js/jquery.js"></script>
   <script src="js/commons.js"></script>
   <script src="js/jquery.mobile-1.2.1.min.js"></script>
-  <script src="js/jquery.jsonp-2.1.4.min.js"></script>
+
   <script type="text/javascript">
     $( document ).ready(function() {
       var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
       hash = hashes[0].split('=');
-      var base_url = 'http://localhost:8080/verbosws/rest/verbos/mobile/letra/';
+      var base_url = 'http://itinerariosp.com.br:8080/verbosws/rest/verbos/mobile/letra/';
       url_full = base_url + hash[1];
       listVerbos(url_full, hash[1]);
     });
@@ -31,16 +28,20 @@
          
         $.ajax({
             type: "GET",
+            encoding:"ISO-8859-1",
             url: url,
             dataType: 'json',
             success: function(data){
               if(data != ''){
                 $.each(data, function(i, item) {
-                  $('#resultLog').append('<div><button type="button" class="btn btn-info btn-lg btn-block" onclick="getConjugacoes('+'\''+item.nome+'\''+');">'+ item.nome +'</button><p /><div>');
+                  $('#result').append('<li><a href onclick="getConjugacoes('+'\''+item.nome+'\''+');" class="ui-icon-star"  >'+ item.nome +'</a><li>').listview('refresh');
+
                 });
               }else{
                 alert('Letra "'+letra.toUpperCase()+'" sem verbos.');
+                home();
               }
+              //$('#resultLog').listview('refresh');
             },
             error: function(dat){
               console.log(data);
@@ -54,19 +55,19 @@
   <script src="https://d10ajoocuyu32n.cloudfront.net/codiqa.ext.js"></script>
    
 </head>
-<body bgcolor="#000000">
+<body>
 <!-- Home -->
-<div data-role="page" id="page1" align="center" >
-    <div data-theme="a" data-role="header">
+<div data-role="page" id="page1" align="center">
+    <div data-theme="a" data-role="header" data-position="fixed">
       <button value="HOME" onclick="home();"></button>
         <h3 id="header_conjugverbos">
             ConjugVerbos
         </h3>
     </div>
-    <div>
-    <br />
-    </div>
-    <div id="resultLog" align="center" ></div>
+    <p />
+    <ul id="result" data-role="listview" data-inset="true" data-filter="true" data-theme="d" class="ui-icon-arrow-r" >
+      <br />
+    </ul>
 </div>
 </body>
 </html>

@@ -1,13 +1,25 @@
 {
+  "version": "1.0",
   "name": "ConjugVerbos",
-  "description": "Conjugue Verbos da Lingua Portuguesa",
-  "launch_path": "/index.html",
+  "description": "Aplicativo feito para quem precisa pesquiser Verbos, conhecer, estudar!",
   "icons": {
-    "128": "/images/icon-128.png"
+    "60": "/images/logo-60X60.png",
+    "90": "/images/logo-90X90.png",
+    "120": "/images/logo-120X120.png"
   },
   "developer": {
     "name": "Gilmar Soares",
-    "url": "http://itinerariosp.com.br"
+    "url": "http://about.me/gilmar.soares"
   },
-  "default_locale": "en"
+  "installs_allowed_from": ["*"],
+  "appcache_path": "/cache.manifest",
+  "locales": {
+    "pt": {
+      "description": "Aplicativo feito para quem precisa pesquiser Verbos, conhecer, estudar!",
+      "developer": {
+        "url": "http://about.me/gilmar.soares"
+      }
+    }
+  },
+  "default_locale": "pt"
 }
