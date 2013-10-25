@@ -9,6 +9,13 @@
   
   <link rel="stylesheet" href="css/jquery.mobile-1.2.1.min.css">
   <link rel="stylesheet" href="css/commons.css">
+
+  <style>
+    #lista .ui-icon-custom {
+    background-image: url("images/arrow_right_double.png");
+    background-position: 2px 2px;
+    background-size: 90%; }
+  </style>
   
   <!-- jQuery and jQuery Mobile -->
   <script src="js/jquery.js"></script>
@@ -34,7 +41,7 @@
             success: function(data){
               if(data != ''){
                 $.each(data, function(i, item) {
-                  $('#result').append('<li><a href onclick="getConjugacoes('+'\''+item.nome+'\''+');" class="ui-icon-star"  >'+ item.nome +'</a><li>').listview('refresh');
+                  $('#result').append('<li data-icon="custom" id="lista"><a href onclick="getConjugacoes('+'\''+item.nome+'\''+');"  >'+ item.nome +'</a><li>').listview('refresh');
 
                 });
               }else{
@@ -65,7 +72,7 @@
         </h3>
     </div>
     <p />
-    <ul id="result" data-role="listview" data-inset="true" data-filter="true" data-theme="d" class="ui-icon-arrow-r" >
+    <ul id="result" data-role="listview" placeholder="Busca" data-inset="true" data-filter="true" data-theme="d" >
       <br />
     </ul>
 </div>
