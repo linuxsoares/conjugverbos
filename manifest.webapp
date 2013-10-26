@@ -3,9 +3,12 @@
   "name": "ConjugVerbos",
   "description": "Aplicativo feito para quem precisa pesquiser Verbos, conhecer, estudar!",
   "icons": {
+    "32": "/images/logo-32X32.png",
     "60": "/images/logo-60X60.png",
     "90": "/images/logo-90X90.png",
-    "120": "/images/logo-120X120.png"
+    "120": "/images/logo-120X120.png",
+    "128": "/images/logo-128X128.png",
+    "256": "/images/logo-256X256.png",
   },
   "developer": {
     "name": "Gilmar Soares",
