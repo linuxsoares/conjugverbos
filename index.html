@@ -19,12 +19,14 @@
         function getvalor(let){
             getVerbos(let);
         }
+
+        
     </script>
    
 </head>
-<body background-color="black">
+<body>
 <!-- Home -->
-<div data-role="page" id="page1" align="center" style="width: 100%;">
+<div data-role="page" id="page1" align="center" style="width: 100%;" data-theme="b">
     <div data-theme="a" data-role="header" data-position="fixed">
         <h3 id="header_conjug">
             ConjugVerbos
@@ -38,7 +40,7 @@
             <button id="botao_busca" onclick="getValorBusca();" value="Busca" data-mini="true"></button>
         </div>
     </div>
-    <div data-role="content" id="letra"  style="width: 100%;" align="center">
+    <div data-role="content" id="letra-mobile"  style="width: 100%;" align="center">
         <div style="float: left;" onclick="getvalor('a');">
             <img src="images/a.png" style="width: 59px; height: 59px;">
         </div>

@@ -9,13 +9,6 @@
   
   <link rel="stylesheet" href="css/jquery.mobile-1.2.1.min.css">
   <link rel="stylesheet" href="css/commons.css">
-
-  <style>
-    #lista .ui-icon-custom {
-    background-image: url("images/arrow_right_double.png");
-    background-position: 2px 2px;
-    background-size: 90%; }
-  </style>
   
   <!-- jQuery and jQuery Mobile -->
   <script src="js/jquery.js"></script>
@@ -41,9 +34,11 @@
             success: function(data){
               if(data != ''){
                 $.each(data, function(i, item) {
-                  $('#result').append('<li data-icon="custom" id="lista"><a href onclick="getConjugacoes('+'\''+item.nome+'\''+');"  >'+ item.nome +'</a><li>').listview('refresh');
+                  //class="ui-li ui-li-static ui-body-c" class="ui-body-d"
+                  $('#result').append('<li class="ui-li ui-li-static ui-body-b"  onclick="getConjugacoes('+'\''+item.nome+'\''+');">'+ item.nome +'</li>');
 
                 });
+                $('#result').listview('refresh');
               }else{
                 alert('Letra "'+letra.toUpperCase()+'" sem verbos.');
                 home();
@@ -64,7 +59,7 @@
 </head>
 <body>
 <!-- Home -->
-<div data-role="page" id="page1" align="center">
+<div data-role="page" id="page1" align="center" data-theme="b">
     <div data-theme="a" data-role="header" data-position="fixed">
       <button value="HOME" onclick="home();"></button>
         <h3 id="header_conjugverbos">
@@ -72,7 +67,7 @@
         </h3>
     </div>
     <p />
-    <ul id="result" data-role="listview" placeholder="Busca" data-inset="true" data-filter="true" data-theme="d" >
+    <ul id="result" data-role="listview" data-filter-placeholder="Pesquise o verbo" data-inset="true" data-filter="true">
       <br />
     </ul>
 </div>
