@@ -4,9 +4,12 @@
   "description": "Aplicativo feito para quem precisa pesquiser Verbos, conhecer, estudar!",
   "launch_path": "/index.html",
   "icons": {
-    "90": "/images/logo-90X90.png",
-    "120": "/images/logo-120X120.png",
-    "256": "/images/logo-256X256.png"
+    "32": "images/logo-32.png",
+    "60": "images/logo-60.png",
+    "90": "images/logo-90.png",
+    "120": "images/logo-120.png",
+    "128": "images/logo-128.png",
+    "256": "images/logo-256.png"
   },
   "developer": {
     "name": "Gilmar Soares",
