@@ -1,1 +1,4 @@
-conjugverbos.com.br.     3600    IN CNAME   linuxsoares.github.io.
+;conjugverbos.com.br.                     IN      A
+conjugverbos.com.br.              3592    IN      CNAME   linuxsoares.github.io.
+linuxsoares.github.io.           43192    IN      CNAME   github.map.fastly.net.
+github.map.fastly.net.        		22    IN      A       204.232.175.78
